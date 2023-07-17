@@ -1,5 +1,6 @@
-from flask import Flask,render_template,jsonify
 from logging.config import dictConfig
+
+from flask import Flask
 
 dictConfig({
     'version': 1,
@@ -17,24 +18,26 @@ dictConfig({
     }
 })
 
-
 app = Flask(__name__)
 
+#
+# @app.route('/hello',methods=['GET'])
+# def hello_world():
+#     return 'Hello World!!!!!!!'
+#
+#
+# @app.route('/html', methods=['GET'])
+# def html():
+#     return render_template('index.html')
+#
+#
+# @app.route('/json', methods=['GET'])
+# def json():
+#     data = {'message': 'Hello, world!'}
+#     return jsonify(data)
 
-@app.route('/hello',methods=['GET'])
-def hello_world():
-    return 'Hello World!!!!!!!'
 
-
-@app.route('/html', methods=['GET'])
-def html():
-    return render_template('index.html')
-
-
-@app.route('/json', methods=['GET'])
-def json():
-    data = {'message': 'Hello, world!'}
-    return jsonify(data)
+from views import *
 
 
 if __name__ == '__main__':
